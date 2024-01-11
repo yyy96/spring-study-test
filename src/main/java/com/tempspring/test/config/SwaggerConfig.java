@@ -23,8 +23,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Swagger 문서 제목")
-                .description("Swagger 문서 설명")
+                .title("Spring Test Swagger API 문서")
+                .description("Spring Test 와 관련된 api 문서화입니다.")
                 .version("1.0");
     }
 
