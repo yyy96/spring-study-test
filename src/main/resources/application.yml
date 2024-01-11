@@ -6,3 +6,15 @@ spring:
 
   aop:
     proxy-target-class: true #jdk ?? (false = jdk ??, true = CGLIB)
+
+
+# Swagger 설정
+springdoc:
+  packages-to-scan: com.testspring.test
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
