@@ -1,9 +1,8 @@
 package com.tempspring.test.pay.service;
 
-import com.tempspring.test.common.transactions.TransactionLLog;
+import com.tempspring.test.common.transactions.TransactionLog;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 @Service
 public class KakaoPayService implements PayService1 {
@@ -14,26 +13,26 @@ public class KakaoPayService implements PayService1 {
 
     public void exPay() {
         System.out.println("[외부 호출] 결제 완료");
-        TransactionLLog.printActiveInfo();
+        TransactionLog.printActiveInfo();
         inTransactionPay();
     }
 
     @Transactional
     public void exTransactionPay() {
         System.out.println("[외부 호출] 트랜잭션 결제 완료");
-        TransactionLLog.printActiveInfo();
+        TransactionLog.printActiveInfo();
         inPay();
     }
 
     public void inPay() {
         System.out.println("[내부 호출] 결제 완료");
-        TransactionLLog.printActiveInfo();
+        TransactionLog.printActiveInfo();
     }
 
     @Transactional
     public void inTransactionPay() {
         System.out.println("[내부 호출] 트랜잭션 결제 완료");
-        TransactionLLog.printActiveInfo();
+        TransactionLog.printActiveInfo();
     }
 
     /**
