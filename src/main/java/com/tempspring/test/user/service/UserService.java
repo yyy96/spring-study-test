@@ -37,7 +37,8 @@ public class UserService {
         throw new RuntimeException();
     }
 
-    @Transactional
+    /* 부모에서 붙여줘야 정상적인 비즈니스 로직 트랜잭션 */
+    //@Transactional
     public void longin_self_invocation(UserLoginRequest request) {
         Optional<User> member = userRepository.findByUserId(request.getUserId());
 
@@ -52,11 +53,14 @@ public class UserService {
         throw new RuntimeException();
     }
 
-    private void isMember(User user) {
+    //private : Methods annotated with '@Transactional' must be overridable
+    @Transactional
+    public void isMember(User user) {
         user.updateLoginStatus();
     }
 
-    private void isNotMember(String userId, String pwd, String name) {
+    @Transactional
+    public void isNotMember(String userId, String pwd, String name) {
         userRepository.save(User.create(userId, pwd, name));
     }
 
