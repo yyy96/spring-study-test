@@ -8,9 +8,11 @@
 - resolver
 - cache
 - session
-  - [TEST]
-    - 쿠키가 잘 생성된 것을 확인 가능. 크롬에서 쿠키 관리 확인 가능
-        ![스크린샷 2024-06-07 오후 3.46.01.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ffc%2Fxf2qbhs928b9fdyfxb1zjx740000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_1iX7Zt%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-06-07%20%EC%98%A4%ED%9B%84%203.46.01.png)
+  <details>
+    <summary>Chrome Test</summary>
+    * 쿠키가 크롬 브라우저 Application 에서 생성된 것을 확인 가능.
+    <img width="1069" alt="스크린샷 2024-06-07 오후 3 54 28" src="https://github.com/yyy96/spring-study-test/assets/65826145/a8ea62bb-b0bd-4b96-95f8-07376789cabc">
+  </details>
 - ...
 
 <br><br>
