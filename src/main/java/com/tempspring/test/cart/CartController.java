@@ -18,19 +18,41 @@ public class CartController {
 
     private CartService cartService;
 
-    @PostMapping("/create")
-    public ResponseEntity<CartResponse> createCart(
+    /**
+     * Cookie Version
+     * */
+    @PostMapping("/create/cookie")
+    public ResponseEntity<CartResponse> createCart_Cookie(
             HttpServletResponse response,
             @RequestParam Long itemId,
             @RequestParam int quantity) {
         return ResponseEntity.ok(cartService.createCart(response, itemId, quantity));
     }
 
-    @GetMapping("/{cartId}")
-    public ResponseEntity<CartResponse> viewCart(
+    @GetMapping("/{cartId}/cookie")
+    public ResponseEntity<CartResponse> viewCart_Cookie(
             HttpServletRequest request,
             @PathVariable Long cartId
     ) {
         return ResponseEntity.ok(cartService.getCart(request, cartId));
+    }
+
+    /**
+     * Session Version
+     * */
+    @PostMapping("/create/session")
+    public ResponseEntity<CartResponse> createCart_Session(
+            @RequestParam Long itemId,
+            @RequestParam int quantity) {
+        CartResponse response = cartService.createCart_Session(itemId, quantity);
+        return ResponseEntity.ok(cartService.createCart_Session(itemId, quantity));
+    }
+
+    @GetMapping("/{cartId}/session")
+    public ResponseEntity<CartResponse> viewCart_Session(
+            HttpServletRequest request,
+            @PathVariable Long cartId
+    ) {
+        return ResponseEntity.ok(cartService.getCart_Session(request, cartId));
     }
 }

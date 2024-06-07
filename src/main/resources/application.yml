@@ -1,5 +1,10 @@
 server:
-  port: 8080
+  port: 8081
+  servlet:
+    session:
+      cookie:
+        path: /
+        name: MY_SESSION
 
 spring:
   datasource:
@@ -15,6 +20,14 @@ spring:
         use_sql_comments: true
     hibernate:
       ddl-auto: update
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+
+  session:
+    store-type: redis
 
   aop:
     proxy-target-class: true #jdk ?? (false = jdk ??, true = CGLIB)

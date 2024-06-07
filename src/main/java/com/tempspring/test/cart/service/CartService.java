@@ -3,6 +3,7 @@ package com.tempspring.test.cart.service;
 import com.tempspring.test.cart.Cart;
 import com.tempspring.test.cart.dto.CartResponse;
 import com.tempspring.test.cart.dto.CartResponse.ItemResponse;
+import com.tempspring.test.cart.util.SessionUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,6 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 public class CartService {
 
+    private SessionUtil sessionUtil;
+
+    /**
+     * # 1. Cookie Version
+     */
     public CartResponse createCart(HttpServletResponse response, Long itemId, int quantity) {
         Cart cart = Cart.of();
         cart.addItemsToCart(itemId, quantity);
@@ -46,5 +52,24 @@ public class CartService {
             }
         }
         return CartResponse.of(cartId, itemResponses);
+    }
+
+
+    /**
+     * # 2. Session Version
+     */
+    public CartResponse createCart_Session(Long itemId, int quantity) {
+        Cart cart = Cart.of();
+        cart.addItemsToCart(itemId, quantity);
+        sessionUtil.saveCartSession(cart);
+        return CartResponse.of(cart);
+    }
+
+    public CartResponse getCart_Session(HttpServletRequest request, Long cartId) {
+        Cart cart = sessionUtil.retrieveCartSession();
+        if (cart == null || cart.getId() != cartId) {
+            return null;
+        }
+        return CartResponse.of(cart);
     }
 }
