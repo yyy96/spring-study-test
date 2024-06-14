@@ -22,9 +22,17 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.3"
+	}
+}
+
 dependencies {
 	//spring
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	//aop
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
@@ -38,6 +46,9 @@ dependencies {
 
 	// session
 	implementation 'org.springframework.session:spring-session-data-redis'
+
+	// feignclient
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
 	//swagger
 	//implementation 'org.springdoc:springdoc-openapi-ui:1.6.11' - 해당 부분 이슈 존재 (Whitelabel Error Page)
