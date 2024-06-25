@@ -21,6 +21,6 @@ public class WebConfig implements WebMvcConfigurer {
                 //allow to use cookies
                 .allowCredentials(true)
                 //allow to read response Authorization header
-                .exposedHeaders("Authorization", "Set-Cookie", "MY_SESSIOM", "Cookie");
+                .exposedHeaders("Authorization", "Set-Cookie", "MY_SESSION", "Cookie");
     }
 }

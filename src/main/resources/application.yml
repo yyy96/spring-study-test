@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8089
   servlet:
     session:
       cookie:
@@ -32,9 +32,15 @@ spring:
   aop:
     proxy-target-class: true #jdk ?? (false = jdk ??, true = CGLIB)
 
+
+## OpenFeign api url
 api:
   url:
-    external-api: http://localhost:8089
+    my-open-api: http://localhost:8081
+
+#logging:
+#  level:
+#    feign: ERROR
 
 
 # Swagger 설정
