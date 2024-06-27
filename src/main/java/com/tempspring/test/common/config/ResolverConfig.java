@@ -1,5 +1,6 @@
 package com.tempspring.test.common.config;
 
+import com.tempspring.test.common.resolver.QueryRequestParamResolver;
 import com.tempspring.test.common.resolver.LoginArgumentResolver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -17,6 +18,7 @@ public class ResolverConfig implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(new QueryRequestParamResolver());
         resolvers.add(new LoginArgumentResolver());
     }
 }
