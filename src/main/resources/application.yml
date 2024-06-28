@@ -7,10 +7,17 @@ server:
         name: MY_SESSION
 
 spring:
+  application:
+    name: git-spring-test
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mytest?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
+  # 다른 환경 변수 파일을 가져오기 위한 설정
+  profiles:
+    include:
+      - slack
 
   jpa:
     show-sql: true
@@ -38,9 +45,9 @@ api:
   url:
     my-open-api: http://localhost:8081
 
-#logging:
-#  level:
-#    feign: ERROR
+logging:
+  level:
+    com.tempspring.test: DEBUG
 
 
 # Swagger 설정

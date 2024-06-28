@@ -1,0 +1,7 @@
+#환경 변수 분리 관리
+slack:
+  error:
+    channel: "#spring-api-error-test"
+    webhook:
+      base-url: https://hooks.slack.com/services/
+      token: T078Z2KCD0F/B079DGQN9C3/btW1cUFJCaEvMFc2yUPs65b7
